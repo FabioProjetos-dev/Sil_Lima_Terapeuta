@@ -6,8 +6,8 @@ font-family:Arial, Helvetica, sans-serif;
 }
 
 body{
-background:#f3f6f5;
-color:#444;
+background:#FAF9F7;
+color:#3E4348;
 }
 
 
@@ -50,7 +50,7 @@ nav a{
 
 margin-left:20px;
 text-decoration:none;
-color:#555;
+color:#3E4348;
 font-weight:bold;
 
 }
@@ -65,8 +65,8 @@ height:80vh;
 
 background:linear-gradient(
 120deg,
-#8fbf9f,
-#b7d3c5
+#7A9E7E,
+#a5c2a8
 );
 
 display:flex;
@@ -95,7 +95,7 @@ display:inline-block;
 
 margin-top:20px;
 
-background:#3c7d5e;
+background:#C98B73;
 
 color:white;
 
@@ -157,7 +157,7 @@ box-shadow:
 
 .beneficios{
 
-background:white;
+background:#F5F1EA;
 
 padding:80px 0;
 
@@ -169,9 +169,11 @@ text-align:center;
 
 .cards{
 
-display:grid;
+display:flex;
 
-grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+flex-wrap:wrap;
+
+justify-content:center;
 
 gap:25px;
 
@@ -183,7 +185,11 @@ margin-top:40px;
 
 .card{
 
-background:#3c7d5e;
+flex:0 1 calc(33.333% - 17px);
+
+min-width:220px;
+
+background:#7A9E7E;
 
 color:white;
 
@@ -213,7 +219,7 @@ padding:80px 0;
 
 text-align:center;
 
-background:#f7f7f7;
+background:#FAF9F7;
 
 }
 
@@ -275,7 +281,7 @@ background:white;
 
 footer{
 
-background:#333;
+background:#3E4348;
 color:white;
 
 text-align:center;
@@ -359,7 +365,7 @@ background:#ffffff;
 .contato h2{
 font-size:32px;
 margin-bottom:40px;
-color:#3c7d5e;
+color:#7A9E7E;
 }
 
 
@@ -375,7 +381,7 @@ display:grid;
 grid-template-columns:1fr 1fr;
 gap:20px;
 
-background:#f7faf9;
+background:#F5F1EA;
 
 padding:40px;
 
@@ -411,9 +417,9 @@ transition:0.3s;
 .contato input:focus,
 .contato textarea:focus{
 
-border-color:#3c7d5e;
+border-color:#7A9E7E;
 
-box-shadow:0 0 0 2px rgba(60,125,94,0.2);
+box-shadow:0 0 0 2px rgba(122,158,126,0.2);
 
 }
 
@@ -437,7 +443,7 @@ resize:vertical;
 
 grid-column:span 2;
 
-background:#3c7d5e;
+background:#7A9E7E;
 
 color:white;
 
@@ -460,11 +466,42 @@ transition:0.3s;
 
 .contato button:hover{
 
-background:#2f644b;
+background:#5e7f61;
 
 transform:translateY(-2px);
 
 }
+
+/* SOBRE TEXTO */
+
+.sobre-texto{
+
+display:flex;
+
+flex-direction:column;
+
+gap:16px;
+
+font-size:17px;
+
+line-height:1.7;
+
+color:#3E4348;
+
+}
+
+.destaque{
+
+font-size:18px;
+
+font-weight:bold;
+
+color:#7A9E7E;
+
+margin-top:8px;
+
+}
+
 
 /* METODO */
 
@@ -472,7 +509,7 @@ transform:translateY(-2px);
 
 padding:80px 0;
 
-background:#f5f8f7;
+background:#F5F1EA;
 
 text-align:center;
 
@@ -484,7 +521,7 @@ font-size:32px;
 
 margin-bottom:20px;
 
-color:#3c7d5e;
+color:#7A9E7E;
 
 }
 
@@ -494,73 +531,176 @@ max-width:700px;
 
 margin:auto;
 
-margin-bottom:50px;
+margin-bottom:30px;
 
 font-size:18px;
 
-color:#555;
+color:#3E4348;
 
 }
 
+.metodo-subtitulo{
 
-/* GRID */
+font-size:18px;
 
-.metodo-grid{
+font-weight:bold;
 
-display:grid;
+color:#3E4348;
 
-grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
-
-gap:25px;
-
-margin-bottom:50px;
+margin-bottom:20px;
 
 }
 
+.metodo-lista{
 
-/* CARDS */
+list-style:none;
 
-.metodo-card{
+max-width:500px;
 
-background:white;
+margin:auto;
 
-padding:30px;
+margin-bottom:40px;
 
-border-radius:12px;
-
-box-shadow:0 10px 25px rgba(0,0,0,0.08);
-
-transition:0.3s;
+text-align:left;
 
 }
 
-.metodo-card:hover{
+.metodo-lista li{
 
-transform:translateY(-5px);
+padding:10px 0;
 
-}
+font-size:17px;
 
-.metodo-card h3{
+color:#3E4348;
 
-color:#3c7d5e;
-
-margin-bottom:10px;
+border-bottom:1px solid #e4ddd5;
 
 }
 
+.metodo-encerramento{
 
-/* TEXTO EXPLICATIVO */
-
-.metodo-explicacao{
-
-max-width:750px;
+max-width:700px;
 
 margin:auto;
 
 font-size:17px;
 
-line-height:1.6;
+font-style:italic;
 
-color:#444;
+color:#3E4348;
+
+line-height:1.7;
+
+}
+
+
+/* HISTÓRIA */
+
+.historia{
+
+padding:100px 0;
+
+background:linear-gradient(
+135deg,
+#4a6e4e,
+#7A9E7E
+);
+
+text-align:center;
+
+color:white;
+
+}
+
+.historia h2{
+
+font-size:36px;
+
+margin-bottom:40px;
+
+}
+
+.historia-content{
+
+max-width:700px;
+
+margin:auto;
+
+display:flex;
+
+flex-direction:column;
+
+gap:18px;
+
+font-size:18px;
+
+line-height:1.8;
+
+}
+
+.historia .destaque{
+
+color:#F5F1EA;
+
+font-size:20px;
+
+margin-top:10px;
+
+}
+
+
+/* CHAMADA FINAL */
+
+.chamada-final{
+
+padding:100px 0;
+
+background:#7A9E7E;
+
+text-align:center;
+
+color:white;
+
+}
+
+.chamada-final h2{
+
+font-size:34px;
+
+margin-bottom:20px;
+
+}
+
+.chamada-final p{
+
+font-size:18px;
+
+max-width:650px;
+
+margin:auto;
+
+margin-bottom:40px;
+
+line-height:1.7;
+
+opacity:0.92;
+
+}
+
+.chamada-final .cta{
+
+background:white;
+
+color:#7A9E7E;
+
+font-size:18px;
+
+padding:16px 40px;
+
+}
+
+.chamada-final .cta:hover{
+
+background:#F5F1EA;
 
 }
