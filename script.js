@@ -108,6 +108,32 @@ document.addEventListener("DOMContentLoaded", function(){
   /* Restaurar estado de login ao carregar a página */
   aplicarEstadoNav()
 
+  /* ================================
+     HAMBURGER MENU
+     ================================ */
+
+  const hamburger = document.getElementById("hamburger")
+  const navMenu   = document.getElementById("nav-menu")
+
+  if(hamburger && navMenu){
+
+    hamburger.addEventListener("click", function(){
+      hamburger.classList.toggle("ativo")
+      navMenu.classList.toggle("ativo")
+      document.body.style.overflow =
+        navMenu.classList.contains("ativo") ? "hidden" : ""
+    })
+
+    navMenu.querySelectorAll("a").forEach(function(link){
+      link.addEventListener("click", function(){
+        hamburger.classList.remove("ativo")
+        navMenu.classList.remove("ativo")
+        document.body.style.overflow = ""
+      })
+    })
+
+  }
+
   /* --- Modal --- */
   const modalOverlay = document.getElementById("modal-auth")
   const btnAbrir     = document.getElementById("btn-abrir-login")
