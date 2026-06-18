@@ -138,3 +138,101 @@ border-bottom:none;
 .dev-table tr:hover td{
 background:#faf8f6;
 }
+
+
+/* ================================
+   CONFIGURACOES — estilos compartilhados
+   ================================ */
+
+.cfg-select{
+padding:11px 14px;
+border:1px solid #ddd;
+border-radius:8px;
+font-size:15px;
+background:white;
+color:#3E4348;
+outline:none;
+cursor:pointer;
+transition:0.3s;
+}
+
+.cfg-select:focus{
+border-color:#7A9E7E;
+box-shadow:0 0 0 2px rgba(122,158,126,0.2);
+}
+
+.cfg-textarea{
+width:100%;
+min-height:130px;
+padding:12px 14px;
+border:1px solid #ddd;
+border-radius:8px;
+font-size:15px;
+font-family:inherit;
+outline:none;
+resize:vertical;
+transition:0.3s;
+box-sizing:border-box;
+}
+
+.cfg-textarea:focus{
+border-color:#7A9E7E;
+box-shadow:0 0 0 2px rgba(122,158,126,0.2);
+}
+
+
+/* SLOTS DE IMAGEM */
+
+.dev-slots{
+display:flex;
+flex-direction:column;
+gap:20px;
+margin-top:10px;
+}
+
+.dev-slot{
+display:flex;
+gap:24px;
+align-items:flex-start;
+padding:20px;
+background:#faf8f6;
+border-radius:12px;
+border:1px solid #f0ece8;
+}
+
+.dev-slot-preview{
+flex-shrink:0;
+width:140px;
+height:100px;
+border-radius:10px;
+overflow:hidden;
+background:#eee;
+}
+
+.dev-slot-preview img{
+width:100%;
+height:100%;
+object-fit:cover;
+}
+
+.dev-slot-info{
+flex:1;
+}
+
+.dev-slot-label{
+font-weight:bold;
+color:#3E4348;
+margin-bottom:4px;
+}
+
+.dev-slot-id{
+font-size:13px;
+color:#888;
+}
+
+.dev-slot-id code{
+background:#F5F1EA;
+padding:2px 6px;
+border-radius:4px;
+font-family:monospace;
+}
