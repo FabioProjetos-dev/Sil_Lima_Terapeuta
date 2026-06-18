@@ -32,6 +32,8 @@
 
 </nav>
 
+<button class="btn-login" id="btn-abrir-login">Login / Cadastro</button>
+
 </div>
 
 </header>
@@ -325,17 +327,38 @@ Agende seu atendimento
 
 <footer>
 
-<p>
-© 2026 Silvania Lima Terapeuta
-</p>
+<p>© 2026 Silvania Lima Terapeuta</p>
+
+<a href="desenvolvedor.html" class="footer-dev-link">Desenvolvedor</a>
 
 </footer>
 
 
+<!-- MODAL LOGIN -->
+<div class="modal-overlay" id="modal-auth">
+
+  <div class="modal-box">
+
+    <button class="modal-fechar" id="modal-fechar">&times;</button>
+
+    <form class="modal-form active" id="form-login">
+      <h3>Bem-vinda de volta</h3>
+      <input type="email" id="login-email" placeholder="E-mail" required>
+      <input type="password" id="login-senha" placeholder="Senha" required>
+      <p class="modal-msg-erro" id="login-erro"></p>
+      <button type="submit">Entrar</button>
+    </form>
+
+  </div>
+
+</div>
+
 <script src="script.js"></script>
 
+
 <script src="https://cdn.botpress.cloud/webchat/v3.6/inject.js"></script>
-<script src="https://files.bpcontent.cloud/2024/12/30/16/20241230161117-JC2PO8VK.js" defer></script>
+<script id="chatbot-config" src="https://files.bpcontent.cloud/2024/12/30/16/20241230161117-JC2PO8VK.js" defer></script>
     
+
 </body>
 </html>
