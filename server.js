@@ -1,9 +1,11 @@
 const express = require('express')
 const { Pool } = require('pg')
 const cors = require('cors')
+const multer = require('multer')
 
 const app = express()
 const PORT = process.env.PORT || 3000
+const upload = multer({ storage: multer.memoryStorage(), limits: { fileSize: 10 * 1024 * 1024 } })
 
 app.use(cors())
 app.use(express.json())
@@ -16,7 +18,10 @@ const pool = new Pool({
     : false
 })
 
-/* Testar conexão */
+/* ================================
+   CONEXÃO
+   ================================ */
+
 app.get('/api/testar-conexao', async (req, res) => {
   try {
     await pool.query('SELECT 1')
@@ -26,12 +31,13 @@ app.get('/api/testar-conexao', async (req, res) => {
   }
 })
 
-/* Login */
+/* ================================
+   LOGIN
+   ================================ */
+
 app.post('/api/login', async (req, res) => {
   const { email, senha } = req.body
-  if (!email || !senha) {
-    return res.json({ sucesso: false, mensagem: 'Preencha e-mail e senha.' })
-  }
+  if (!email || !senha) return res.json({ sucesso: false, mensagem: 'Preencha e-mail e senha.' })
   try {
     const result = await pool.query(
       'SELECT id, nome, email FROM usuarios WHERE email = $1 AND senha = $2',
@@ -47,7 +53,10 @@ app.post('/api/login', async (req, res) => {
   }
 })
 
-/* Listar usuários */
+/* ================================
+   USUÁRIOS
+   ================================ */
+
 app.get('/api/usuarios', async (req, res) => {
   try {
     const result = await pool.query(
@@ -59,12 +68,9 @@ app.get('/api/usuarios', async (req, res) => {
   }
 })
 
-/* Criar usuário */
 app.post('/api/usuarios', async (req, res) => {
   const { nome, email, senha } = req.body
-  if (!nome || !email || !senha) {
-    return res.json({ sucesso: false, mensagem: 'Preencha todos os campos.' })
-  }
+  if (!nome || !email || !senha) return res.json({ sucesso: false, mensagem: 'Preencha todos os campos.' })
   try {
     const result = await pool.query(
       'INSERT INTO usuarios (nome, email, senha) VALUES ($1, $2, $3) RETURNING id, nome, email',
@@ -80,10 +86,64 @@ app.post('/api/usuarios', async (req, res) => {
   }
 })
 
-/* Deletar usuário */
 app.delete('/api/usuarios/:id', async (req, res) => {
   try {
     await pool.query('DELETE FROM usuarios WHERE id = $1', [req.params.id])
+    res.json({ sucesso: true })
+  } catch (err) {
+    res.status(500).json({ sucesso: false, mensagem: err.message })
+  }
+})
+
+/* ================================
+   IMAGENS
+   ================================ */
+
+app.get('/api/imagens', async (req, res) => {
+  try {
+    const result = await pool.query(
+      'SELECT slot, mimetype, criado_em FROM imagens ORDER BY slot'
+    )
+    res.json({ sucesso: true, imagens: result.rows })
+  } catch (err) {
+    res.status(500).json({ sucesso: false, mensagem: err.message })
+  }
+})
+
+app.get('/api/imagens/:slot', async (req, res) => {
+  try {
+    const result = await pool.query(
+      'SELECT dados, mimetype FROM imagens WHERE slot = $1',
+      [req.params.slot]
+    )
+    if (result.rows.length === 0) return res.status(404).send('Imagem não encontrada')
+    res.setHeader('Content-Type', result.rows[0].mimetype)
+    res.setHeader('Cache-Control', 'public, max-age=86400')
+    res.send(result.rows[0].dados)
+  } catch (err) {
+    res.status(500).json({ sucesso: false, mensagem: err.message })
+  }
+})
+
+app.post('/api/imagens/:slot', upload.single('imagem'), async (req, res) => {
+  if (!req.file) return res.json({ sucesso: false, mensagem: 'Nenhum arquivo enviado.' })
+  try {
+    await pool.query(
+      `INSERT INTO imagens (slot, mimetype, dados)
+       VALUES ($1, $2, $3)
+       ON CONFLICT (slot) DO UPDATE
+       SET mimetype = $2, dados = $3, criado_em = CURRENT_TIMESTAMP`,
+      [req.params.slot, req.file.mimetype, req.file.buffer]
+    )
+    res.json({ sucesso: true })
+  } catch (err) {
+    res.status(500).json({ sucesso: false, mensagem: err.message })
+  }
+})
+
+app.delete('/api/imagens/:slot', async (req, res) => {
+  try {
+    await pool.query('DELETE FROM imagens WHERE slot = $1', [req.params.slot])
     res.json({ sucesso: true })
   } catch (err) {
     res.status(500).json({ sucesso: false, mensagem: err.message })
