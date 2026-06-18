@@ -727,6 +727,195 @@ background:#F5F1EA;
 
 
 /* ================================
+   AUTH BUTTON
+   ================================ */
+
+.btn-login{
+
+margin-left:20px;
+padding:8px 18px;
+background:#C98B73;
+color:white;
+border:none;
+border-radius:8px;
+font-weight:bold;
+font-size:14px;
+cursor:pointer;
+transition:0.3s;
+
+}
+
+.btn-login:hover{
+
+background:#b57860;
+
+}
+
+
+/* ================================
+   MODAL AUTH
+   ================================ */
+
+.modal-overlay{
+
+display:none;
+position:fixed;
+inset:0;
+background:rgba(0,0,0,0.55);
+z-index:200;
+align-items:center;
+justify-content:center;
+
+}
+
+.modal-overlay.ativo{
+
+display:flex;
+
+}
+
+.modal-box{
+
+background:white;
+border-radius:18px;
+padding:40px;
+width:90%;
+max-width:420px;
+position:relative;
+
+}
+
+.modal-fechar{
+
+position:absolute;
+top:14px;
+right:18px;
+background:none;
+border:none;
+font-size:26px;
+cursor:pointer;
+color:#3E4348;
+line-height:1;
+
+}
+
+.modal-tabs{
+
+display:flex;
+gap:10px;
+margin-bottom:28px;
+
+}
+
+.tab-btn{
+
+flex:1;
+padding:10px;
+border:2px solid #7A9E7E;
+border-radius:8px;
+background:white;
+color:#7A9E7E;
+font-weight:bold;
+cursor:pointer;
+transition:0.3s;
+
+}
+
+.tab-btn.active{
+
+background:#7A9E7E;
+color:white;
+
+}
+
+.modal-form{
+
+display:none;
+flex-direction:column;
+gap:14px;
+
+}
+
+.modal-form.active{
+
+display:flex;
+
+}
+
+.modal-form h3{
+
+font-size:22px;
+color:#3E4348;
+margin-bottom:4px;
+
+}
+
+.modal-form input{
+
+padding:13px;
+border:1px solid #ddd;
+border-radius:8px;
+font-size:15px;
+outline:none;
+transition:0.3s;
+
+}
+
+.modal-form input:focus{
+
+border-color:#7A9E7E;
+box-shadow:0 0 0 2px rgba(122,158,126,0.2);
+
+}
+
+.modal-form button[type="submit"]{
+
+background:#C98B73;
+color:white;
+border:none;
+padding:13px;
+border-radius:8px;
+font-size:16px;
+font-weight:bold;
+cursor:pointer;
+transition:0.3s;
+margin-top:4px;
+
+}
+
+.modal-form button[type="submit"]:hover{
+
+background:#b57860;
+
+}
+
+.modal-msg-erro{
+
+color:#C98B73;
+font-size:14px;
+font-weight:bold;
+min-height:18px;
+
+}
+
+.footer-dev-link{
+
+display:block;
+margin-top:8px;
+color:rgba(255,255,255,0.4);
+font-size:12px;
+text-decoration:none;
+
+}
+
+.footer-dev-link:hover{
+
+color:rgba(255,255,255,0.75);
+
+}
+
+
+/* ================================
    TABLET (até 900px)
    ================================ */
 
