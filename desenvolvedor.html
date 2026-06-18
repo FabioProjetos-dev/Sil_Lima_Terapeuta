@@ -50,6 +50,10 @@
         <input type="text" id="u-nome" placeholder="Nome completo" required>
         <input type="email" id="u-email" placeholder="E-mail" required>
         <input type="password" id="u-senha" placeholder="Senha" required>
+        <select id="u-tipo" class="cfg-select">
+          <option value="user">Usuário</option>
+          <option value="admin">Administrador</option>
+        </select>
         <button class="dev-btn" type="submit">Adicionar</button>
       </div>
       <p class="dev-status" id="status-add"></p>
@@ -69,6 +73,17 @@
     <div class="dev-table-wrap" id="tabela-usuarios">
       <p class="dev-desc">Clique em "Carregar" para buscar os usuários do banco.</p>
     </div>
+
+  </section>
+
+
+  <!-- IMAGENS DO SITE -->
+  <section class="dev-card">
+
+    <h2>Imagens do Site</h2>
+    <p class="dev-desc">Faça upload para substituir cada imagem. O arquivo local é usado como fallback quando não há imagem no banco.</p>
+
+    <div class="dev-slots" id="dev-slots"></div>
 
   </section>
 
