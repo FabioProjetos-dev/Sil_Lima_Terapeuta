@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Desenvolvedor — Silvania Lima</title>
+<link rel="stylesheet" href="styles.css">
+<link rel="stylesheet" href="desenvolvedor.css">
+<link rel="icon" href="icons/cacto_emoji.ico" type="image/x-icon">
+</head>
+
+<body>
+
+<header>
+<div class="container">
+<h1><a href="index.html" style="text-decoration:none;color:inherit">Silvania Lima</a></h1>
+<span class="dev-badge">Área do Desenvolvedor</span>
+</div>
+</header>
+
+
+<main class="dev-main container">
+
+
+  <!-- CONFIGURAÇÃO DA API -->
+  <section class="dev-card">
+
+    <h2>Configuração da API</h2>
+    <p class="dev-desc">Endereço do servidor backend que conecta ao banco de dados PostgreSQL do Railway.</p>
+
+    <div class="dev-form-row">
+      <input type="text" id="api-url" placeholder="http://localhost:3000">
+      <button class="dev-btn" id="btn-salvar-url">Salvar</button>
+      <button class="dev-btn dev-btn-outline" id="btn-testar">Testar Conexão</button>
+    </div>
+
+    <p class="dev-status" id="status-conexao"></p>
+
+  </section>
+
+
+  <!-- ADICIONAR USUÁRIO -->
+  <section class="dev-card">
+
+    <h2>Adicionar Usuário</h2>
+
+    <form class="dev-form" id="form-add-usuario">
+      <div class="dev-form-row">
+        <input type="text" id="u-nome" placeholder="Nome completo" required>
+        <input type="email" id="u-email" placeholder="E-mail" required>
+        <input type="password" id="u-senha" placeholder="Senha" required>
+        <button class="dev-btn" type="submit">Adicionar</button>
+      </div>
+      <p class="dev-status" id="status-add"></p>
+    </form>
+
+  </section>
+
+
+  <!-- LISTA DE USUÁRIOS -->
+  <section class="dev-card">
+
+    <h2>
+      Usuários Cadastrados
+      <button class="dev-btn dev-btn-sm" id="btn-carregar">Carregar</button>
+    </h2>
+
+    <div class="dev-table-wrap" id="tabela-usuarios">
+      <p class="dev-desc">Clique em "Carregar" para buscar os usuários do banco.</p>
+    </div>
+
+  </section>
+
+
+</main>
+
+
+<footer>
+<p>© 2026 Silvania Lima Terapeuta — Área Restrita</p>
+</footer>
+
+<script src="desenvolvedor.js"></script>
+
+</body>
+</html>
