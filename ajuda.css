@@ -1,0 +1,154 @@
+.ajuda-hero{
+background:linear-gradient(120deg,#7A9E7E,#a5c2a8);
+color:white;
+text-align:center;
+padding:60px 20px;
+}
+.ajuda-hero h2{
+font-size:36px;
+margin-bottom:12px;
+}
+.ajuda-hero p{
+font-size:18px;
+opacity:0.9;
+}
+
+.ajuda-main{
+padding:60px 0 80px;
+display:flex;
+flex-direction:column;
+gap:28px;
+}
+
+/* CARD */
+.ajuda-card{
+background:white;
+border-radius:16px;
+box-shadow:0 4px 20px rgba(0,0,0,0.07);
+overflow:hidden;
+transition:transform 0.2s;
+}
+.ajuda-card:hover{
+transform:translateY(-4px);
+}
+
+.ajuda-card-header{
+background:#F5F1EA;
+padding:20px 28px;
+display:flex;
+align-items:center;
+gap:14px;
+}
+.ajuda-card-header h3{
+font-size:20px;
+color:#3E4348;
+margin:0;
+}
+
+/* BADGE DE TIPO */
+.ajuda-tipo-badge{
+font-size:11px;
+font-weight:bold;
+padding:4px 12px;
+border-radius:20px;
+text-transform:uppercase;
+letter-spacing:0.5px;
+white-space:nowrap;
+flex-shrink:0;
+}
+.ajuda-tipo-texto { background:#7A9E7E; color:white; }
+.ajuda-tipo-pdf   { background:#C98B73; color:white; }
+.ajuda-tipo-video { background:#3E4348; color:white; }
+
+/* CORPO */
+.ajuda-card-body{
+padding:24px 28px;
+}
+
+.ajuda-texto{
+font-size:16px;
+line-height:1.8;
+color:#3E4348;
+white-space:pre-wrap;
+margin:0;
+}
+
+/* PDF */
+.ajuda-btn-pdf{
+display:inline-flex;
+align-items:center;
+gap:8px;
+margin-top:16px;
+padding:12px 24px;
+background:#C98B73;
+color:white;
+border-radius:8px;
+text-decoration:none;
+font-weight:bold;
+font-size:15px;
+transition:0.3s;
+}
+.ajuda-btn-pdf:hover{
+background:#b57860;
+transform:translateY(-2px);
+}
+
+/* VIDEO */
+.ajuda-video-box{
+margin-top:16px;
+border-radius:12px;
+overflow:hidden;
+max-width:720px;
+aspect-ratio:16/9;
+}
+.ajuda-video-box iframe{
+width:100%;
+height:100%;
+border:none;
+}
+
+.ajuda-link-video{
+display:inline-block;
+margin-top:14px;
+padding:12px 24px;
+background:#3E4348;
+color:white;
+border-radius:8px;
+text-decoration:none;
+font-weight:bold;
+transition:0.3s;
+}
+.ajuda-link-video:hover{
+background:#555;
+}
+
+.ajuda-descricao{
+font-size:15px;
+color:#666;
+line-height:1.7;
+margin:0 0 12px;
+}
+
+/* VAZIO / CARREGANDO */
+.ajuda-vazio,
+.ajuda-carregando{
+text-align:center;
+color:#999;
+font-size:16px;
+padding:80px 0;
+}
+
+/* RESPONSIVE */
+@media(max-width:600px){
+  .ajuda-card-header{
+    flex-direction:column;
+    align-items:flex-start;
+    gap:8px;
+  }
+  .ajuda-card-body{
+    padding:18px 20px;
+  }
+  .ajuda-hero h2{
+    font-size:26px;
+  }
+}

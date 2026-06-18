@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Configurações — Silvania Lima</title>
+<link rel="stylesheet" href="styles.css">
+<link rel="stylesheet" href="desenvolvedor.css">
+<link rel="icon" href="icons/cacto_emoji.ico" type="image/x-icon">
+</head>
+
+<body>
+
+<header>
+<div class="container">
+<h1><a href="index.html" style="text-decoration:none;color:inherit">Silvania Lima</a></h1>
+<nav style="display:flex;align-items:center;gap:6px">
+  <a href="index.html" style="margin-left:0">Início</a>
+  <a href="ajuda.html">Ajuda</a>
+  <a href="configuracoes.html">Configurações</a>
+  <a href="desenvolvedor.html">Dev</a>
+</nav>
+</div>
+</header>
+
+
+<main class="dev-main container">
+
+
+  <!-- FORMULÁRIO ADICIONAR / EDITAR SEÇÃO -->
+  <section class="dev-card">
+
+    <h2 id="cfg-form-titulo">Nova Seção — Página Ajuda</h2>
+
+    <form id="form-secao">
+
+      <input type="hidden" id="secao-id">
+
+      <div class="dev-form-row">
+        <input type="text" id="secao-titulo" placeholder="Título da seção" required style="flex:2;min-width:200px">
+        <select id="secao-tipo" class="cfg-select">
+          <option value="texto">📝 Texto</option>
+          <option value="pdf">📄 PDF</option>
+          <option value="video">▶ Vídeo YouTube</option>
+        </select>
+        <input type="number" id="secao-ordem" placeholder="Ordem" value="0" style="width:90px;flex:none;padding:11px 14px;border:1px solid #ddd;border-radius:8px;font-size:15px;outline:none">
+      </div>
+
+      <textarea
+        id="secao-conteudo"
+        class="cfg-textarea"
+        placeholder="Conteúdo (texto explicativo ou descrição para PDF/vídeo)"
+        style="margin-top:14px"
+      ></textarea>
+
+      <div id="url-row" style="display:none;margin-top:12px">
+        <input
+          type="url"
+          id="secao-url"
+          placeholder="URL do PDF ou link do YouTube"
+          style="width:100%;padding:12px 14px;border:1px solid #ddd;border-radius:8px;font-size:15px;outline:none;box-sizing:border-box"
+        >
+      </div>
+
+      <div style="display:flex;gap:10px;margin-top:16px">
+        <button class="dev-btn" type="submit" id="btn-salvar-secao">Salvar Seção</button>
+        <button class="dev-btn dev-btn-outline" type="button" id="btn-cancelar" style="display:none">Cancelar edição</button>
+      </div>
+
+      <p class="dev-status" id="status-secao"></p>
+
+    </form>
+
+  </section>
+
+
+  <!-- LISTA DE SEÇÕES -->
+  <section class="dev-card">
+
+    <h2>
+      Seções Cadastradas
+      <button class="dev-btn dev-btn-sm" id="btn-recarregar">Recarregar</button>
+    </h2>
+
+    <div id="lista-secoes">
+      <p class="dev-desc">Carregando...</p>
+    </div>
+
+  </section>
+
+
+</main>
+
+
+<footer>
+<p>© 2026 Silvania Lima Terapeuta — Área Restrita</p>
+</footer>
+
+<script src="configuracoes.js"></script>
+
+</body>
+</html>
