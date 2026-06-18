@@ -70,6 +70,30 @@ window.addEventListener("scroll", revealOnScroll)
 
 
 /* ================================
+   IMAGENS DE FUNDO DO BANCO
+   ================================ */
+
+;(function aplicarImagensFundo(){
+  const alvos = ['.imagem-fundo', '.video-section']
+  const img = new Image()
+  img.onload = function(){
+    alvos.forEach(function(sel){
+      const el = document.querySelector(sel)
+      if(el) el.style.backgroundImage = 'url(/api/imagens/fundo1)'
+    })
+  }
+  img.onerror = function(){
+    alvos.forEach(function(sel){
+      const el = document.querySelector(sel)
+      if(el) el.style.backgroundImage = 'url(images/fundo1.png)'
+    })
+  }
+  img.src = '/api/imagens/fundo1'
+})()
+
+
+
+/* ================================
    CHATBOT (carregado após login)
    ================================ */
 
