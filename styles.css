@@ -107,6 +107,24 @@ bottom:50%;
 transform:translateY(50%) rotate(-45deg);
 }
 
+/* Quando o menu abre, o X sai do stacking context do header
+   e fica fixo na tela com z-index acima do overlay */
+@media (max-width:768px){
+
+  .hamburger.ativo{
+    position:fixed;
+    top:22px;
+    right:5%;
+    z-index:200;
+  }
+
+  .hamburger.ativo::before,
+  .hamburger.ativo::after{
+    background:white;
+  }
+
+}
+
 
 header .container{
 
