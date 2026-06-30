@@ -15,7 +15,7 @@
 <header>
 <div class="container">
 <h1><a href="index.html" style="text-decoration:none;color:inherit">Silvania Lima</a></h1>
-<nav style="display:flex;align-items:center;gap:6px">
+<nav style="display:flex;align-items:center;gap:6px;flex-wrap:wrap">
   <a href="index.html" style="margin-left:0">Início</a>
   <a href="ajuda.html">Ajuda</a>
   <a href="configuracoes.html">Configurações</a>
@@ -61,6 +61,17 @@
           placeholder="URL do PDF ou link do YouTube"
           style="width:100%;padding:12px 14px;border:1px solid #ddd;border-radius:8px;font-size:15px;outline:none;box-sizing:border-box"
         >
+
+        <div id="pdf-arquivo-row" style="display:none;margin-top:14px;padding-top:14px;border-top:1px solid #eee">
+          <p style="font-size:13px;color:#888;margin-bottom:8px">Ou envie um arquivo PDF do seu computador:</p>
+          <input
+            type="file"
+            id="secao-arquivo"
+            accept=".pdf,application/pdf"
+            style="width:100%;padding:10px;border:1px solid #ddd;border-radius:8px;font-size:14px;box-sizing:border-box;background:white;cursor:pointer"
+          >
+          <p id="arquivo-info" style="font-size:13px;color:#7A9E7E;margin-top:6px;min-height:16px"></p>
+        </div>
       </div>
 
       <div style="display:flex;gap:10px;margin-top:16px">
@@ -85,6 +96,19 @@
 
     <div id="lista-secoes">
       <p class="dev-desc">Carregando...</p>
+    </div>
+
+  </section>
+
+
+  <!-- TEXTOS DO SITE -->
+  <section class="dev-card">
+
+    <h2>Textos da Página Principal</h2>
+    <p class="dev-desc">Edite os textos exibidos em cada seção do site. Expanda uma seção, edite e clique em "Salvar".</p>
+
+    <div id="textos-editor">
+      <p class="dev-desc">Carregando textos...</p>
     </div>
 
   </section>
