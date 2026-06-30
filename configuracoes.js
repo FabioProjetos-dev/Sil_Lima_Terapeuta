@@ -356,7 +356,7 @@ async function salvarGrupoTexto(grupoId, btn){
   const textos = {}
   grupo.campos.forEach(function(campo){
     const el = document.querySelector('.texto-input[data-chave="' + campo.chave + '"]')
-    if(el) textos[campo.chave] = el.value.trim()
+    if(el && el.value.trim()) textos[campo.chave] = el.value.trim()
   })
 
   const status = document.getElementById('status-texto-' + grupoId)
