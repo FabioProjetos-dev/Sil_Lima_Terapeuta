@@ -582,24 +582,43 @@ transform:translateY(-2px);
 .sobre-texto{
 
 display:flex;
-
 flex-direction:column;
+gap:20px;
 
-gap:16px;
-
-font-size:17px;
-
-line-height:1.7;
-
+font-family:'Lora', Georgia, serif;
+font-size:16.5px;
+line-height:1.9;
 color:#3E4348;
+text-align:left;
 
-background:rgba(250,249,247,0.88);
-backdrop-filter:blur(6px);
--webkit-backdrop-filter:blur(6px);
+background:linear-gradient(160deg, #fefcf8 0%, #f6f0e6 100%);
 border-radius:18px;
-padding:32px 36px;
-box-shadow:0 4px 24px rgba(0,0,0,0.08);
+padding:38px 42px;
+box-shadow:
+  0 8px 36px rgba(122,158,126,0.15),
+  0 2px 8px rgba(0,0,0,0.05);
+border:1px solid rgba(122,158,126,0.22);
 
+}
+
+/* Primeiro parágrafo como saudação em destaque */
+.sobre-texto p:first-child{
+font-size:18px;
+font-weight:600;
+font-style:italic;
+color:#7A9E7E;
+}
+
+/* Frase de destaque com separador */
+.sobre-texto .destaque{
+font-family:'Lora', Georgia, serif;
+font-size:15.5px;
+font-weight:600;
+font-style:italic;
+color:#7A9E7E;
+margin-top:4px;
+padding-top:18px;
+border-top:1px solid rgba(122,158,126,0.25);
 }
 
 .destaque{
@@ -1159,8 +1178,9 @@ color:rgba(255,255,255,0.75);
   }
 
   .sobre-texto{
-    padding:22px 20px;
+    padding:24px 22px;
     border-radius:14px;
+    font-size:15.5px;
   }
 
   .img-card{
