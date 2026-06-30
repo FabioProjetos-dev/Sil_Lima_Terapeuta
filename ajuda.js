@@ -21,11 +21,12 @@ function renderSecao(s){
     corpo = `<p class="ajuda-texto">${s.conteudo ? s.conteudo.replace(/\n/g,'<br>') : ''}</p>`
 
   } else if(s.tipo === 'pdf'){
+    const pdfHref = s.tem_arquivo
+      ? (apiUrl + '/api/secoes/' + s.id + '/arquivo')
+      : s.url
     corpo = `
       ${s.conteudo ? `<p class="ajuda-descricao">${s.conteudo}</p>` : ''}
-      <a href="${s.url}" target="_blank" class="ajuda-btn-pdf" download>
-        📄 Baixar PDF
-      </a>`
+      ${pdfHref ? `<a href="${pdfHref}" target="_blank" class="ajuda-btn-pdf" download>📄 Baixar PDF</a>` : ''}`
 
   } else if(s.tipo === 'video'){
     const id = s.url ? extrairYoutubeId(s.url) : null
