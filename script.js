@@ -39,6 +39,26 @@ window.addEventListener("scroll", revealOnScroll)
 
 
 /* ================================
+   TEXTOS DINÂMICOS DO SITE
+   ================================ */
+
+;(function carregarTextos(){
+  var apiUrl = localStorage.getItem('sl_api_url') || ''
+  fetch(apiUrl + '/api/textos')
+    .then(function(res){ return res.json() })
+    .then(function(data){
+      if(!data.sucesso) return
+      Object.keys(data.textos).forEach(function(chave){
+        document.querySelectorAll('[data-texto="' + chave + '"]').forEach(function(el){
+          el.textContent = data.textos[chave]
+        })
+      })
+    })
+    .catch(function(){})
+})()
+
+
+/* ================================
    IMAGENS DE FUNDO DO BANCO
    ================================ */
 
