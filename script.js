@@ -48,11 +48,29 @@ window.addEventListener("scroll", revealOnScroll)
     .then(function(res){ return res.json() })
     .then(function(data){
       if(!data.sucesso) return
-      Object.keys(data.textos).forEach(function(chave){
+      var textos = data.textos
+
+      // Textos dinâmicos
+      Object.keys(textos).forEach(function(chave){
         document.querySelectorAll('[data-texto="' + chave + '"]').forEach(function(el){
-          el.textContent = data.textos[chave]
+          el.textContent = textos[chave]
         })
       })
+
+      // Links de redes sociais (data-url)
+      var algumSocial = false
+      document.querySelectorAll('[data-url]').forEach(function(el){
+        var chave = el.getAttribute('data-url')
+        if(textos[chave]){
+          el.href = textos[chave]
+          el.style.display = 'inline-flex'
+          algumSocial = true
+        }
+      })
+      if(algumSocial){
+        var container = document.getElementById('sobre-social')
+        if(container) container.style.display = 'flex'
+      }
     })
     .catch(function(){})
 })()
