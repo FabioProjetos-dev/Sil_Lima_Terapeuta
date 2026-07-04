@@ -300,6 +300,18 @@ const GRUPOS_TEXTO = [
     campos: [
       { chave: 'contato_titulo', label: 'Título da seção', tipo: 'input' }
     ]
+  },
+  {
+    id: 'social',
+    label: '🔗 Redes Sociais',
+    campos: [
+      { chave: 'social_instagram', label: 'Instagram — URL do perfil',       tipo: 'input' },
+      { chave: 'social_whatsapp',  label: 'WhatsApp — Link (wa.me/...)',      tipo: 'input' },
+      { chave: 'social_facebook',  label: 'Facebook — URL da página',        tipo: 'input' },
+      { chave: 'social_linkedin',  label: 'LinkedIn — URL do perfil',        tipo: 'input' },
+      { chave: 'social_tiktok',    label: 'TikTok — URL do perfil',          tipo: 'input' },
+      { chave: 'social_youtube',   label: 'YouTube — URL do canal',          tipo: 'input' }
+    ]
   }
 ]
 
