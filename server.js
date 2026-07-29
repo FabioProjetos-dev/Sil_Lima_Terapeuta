@@ -3,6 +3,7 @@ const path = require('path')
 const { Pool } = require('pg')
 const cors = require('cors')
 const multer = require('multer')
+const bcrypt = require('bcryptjs')
 
 const app = express()
 const PORT = process.env.PORT || 3000
@@ -39,11 +40,14 @@ app.post('/api/login', async (req, res) => {
   if (!email || !senha) return res.json({ sucesso: false, mensagem: 'Preencha e-mail e senha.' })
   try {
     const result = await pool.query(
-      'SELECT id, nome, email, tipo FROM usuarios WHERE email = $1 AND senha = $2',
-      [email, senha]
+      'SELECT id, nome, email, tipo, senha FROM usuarios WHERE email = $1',
+      [email]
     )
-    if (result.rows.length > 0) {
-      res.json({ sucesso: true, usuario: result.rows[0] })
+    const usuario = result.rows[0]
+    const senhaValida = usuario && await bcrypt.compare(senha, usuario.senha)
+    if (senhaValida) {
+      delete usuario.senha
+      res.json({ sucesso: true, usuario })
     } else {
       res.json({ sucesso: false, mensagem: 'E-mail ou senha inválidos.' })
     }
@@ -71,9 +75,10 @@ app.post('/api/usuarios', async (req, res) => {
   const { nome, email, senha, tipo } = req.body
   if (!nome || !email || !senha) return res.json({ sucesso: false, mensagem: 'Preencha todos os campos.' })
   try {
+    const senhaHash = await bcrypt.hash(senha, 10)
     const result = await pool.query(
       'INSERT INTO usuarios (nome, email, senha, tipo) VALUES ($1, $2, $3, $4) RETURNING id, nome, email, tipo',
-      [nome, email, senha, tipo || 'user']
+      [nome, email, senhaHash, tipo || 'user']
     )
     res.json({ sucesso: true, usuario: result.rows[0] })
   } catch (err) {
