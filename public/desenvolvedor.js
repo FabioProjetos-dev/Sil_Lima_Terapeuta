@@ -6,9 +6,8 @@ if(localStorage.getItem('sl_usuario_tipo') !== 'admin'){
 const API_KEY = 'sl_api_url'
 
 const SLOTS = [
-  { id: 'img1',   label: 'Foto — Seção "Quem sou eu"',     fallback: 'images/img1.jpeg' },
-  { id: 'img3',   label: 'Foto — Seção "Depoimentos"',      fallback: 'images/img3.jpeg' },
-  { id: 'fundo1', label: 'Imagem de Fundo (Sobre e Vídeo)', fallback: 'images/fundo1.png' }
+  { id: 'img1', label: 'Foto — Seção "Quem sou eu"', fallback: 'images/img1.jpeg' },
+  { id: 'img3', label: 'Foto — Seção "Depoimentos"', fallback: 'images/img3.jpeg' }
 ]
 
 function getApiUrl(){
