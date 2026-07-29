@@ -9,7 +9,7 @@ const upload = multer({ storage: multer.memoryStorage(), limits: { fileSize: 10 
 
 app.use(cors())
 app.use(express.json())
-app.use(express.static('.'))
+app.use(express.static(__dirname))
 
 const pool = new Pool({
   connectionString: process.env.DATABASE_URL,
