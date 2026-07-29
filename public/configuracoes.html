@@ -38,15 +38,19 @@
       <input type="hidden" id="secao-id">
 
       <div class="dev-form-row">
+        <label for="secao-titulo" class="sr-only">Título da seção</label>
         <input type="text" id="secao-titulo" placeholder="Título da seção" required style="flex:2;min-width:200px">
+        <label for="secao-tipo" class="sr-only">Tipo da seção</label>
         <select id="secao-tipo" class="cfg-select">
           <option value="texto">📝 Texto</option>
           <option value="pdf">📄 PDF</option>
           <option value="video">▶ Vídeo YouTube</option>
         </select>
+        <label for="secao-ordem" class="sr-only">Ordem</label>
         <input type="number" id="secao-ordem" placeholder="Ordem" value="0" style="width:90px;flex:none;padding:11px 14px;border:1px solid #ddd;border-radius:8px;font-size:15px;outline:none">
       </div>
 
+      <label for="secao-conteudo" class="sr-only">Conteúdo</label>
       <textarea
         id="secao-conteudo"
         class="cfg-textarea"
@@ -55,6 +59,7 @@
       ></textarea>
 
       <div id="url-row" style="display:none;margin-top:12px">
+        <label for="secao-url" class="sr-only">URL do PDF ou link do YouTube</label>
         <input
           type="url"
           id="secao-url"
@@ -63,7 +68,7 @@
         >
 
         <div id="pdf-arquivo-row" style="display:none;margin-top:14px;padding-top:14px;border-top:1px solid #eee">
-          <p style="font-size:13px;color:#888;margin-bottom:8px">Ou envie um arquivo PDF do seu computador:</p>
+          <label for="secao-arquivo" style="font-size:13px;color:#888;margin-bottom:8px;display:block">Ou envie um arquivo PDF do seu computador:</label>
           <input
             type="file"
             id="secao-arquivo"
