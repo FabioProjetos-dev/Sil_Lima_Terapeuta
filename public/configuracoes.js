@@ -3,7 +3,6 @@ if(localStorage.getItem('sl_usuario_tipo') !== 'admin'){
   window.location.href = 'index.html'
 }
 
-const apiUrl = localStorage.getItem('sl_api_url') || ''
 let editandoId = null
 let secoesData = []
 
@@ -44,8 +43,8 @@ document.addEventListener('DOMContentLoaded', function(){
 
     try {
       const endpoint = editandoId
-        ? apiUrl + '/api/secoes/' + editandoId
-        : apiUrl + '/api/secoes'
+        ? '/api/secoes/' + editandoId
+        : '/api/secoes'
       const method = editandoId ? 'PUT' : 'POST'
 
       let res
@@ -139,7 +138,7 @@ function editarSecao(id){
 async function excluirSecao(id){
   if(!confirm('Excluir esta seção?')) return
   try {
-    await fetch(apiUrl + '/api/secoes/' + id, { method: 'DELETE' })
+    await fetch('/api/secoes/' + id, { method: 'DELETE' })
     carregarSecoes()
   } catch(e){
     alert('Erro ao excluir seção.')
@@ -152,7 +151,7 @@ async function carregarSecoes(){
   const container = document.getElementById('lista-secoes')
   container.innerHTML = '<p class="dev-desc">Carregando...</p>'
   try {
-    const res = await fetch(apiUrl + '/api/secoes')
+    const res = await fetch('/api/secoes')
     const data = await res.json()
     if(!data.sucesso || data.secoes.length === 0){
       container.innerHTML = '<p class="dev-desc">Nenhuma seção cadastrada ainda.</p>'
@@ -239,10 +238,18 @@ const GRUPOS_TEXTO = [
     ]
   },
   {
-    id: 'video',
-    label: '▶ Seção de Vídeo',
+    id: 'avaliacoes',
+    label: '⭐ Avaliações no Google',
     campos: [
-      { chave: 'video_titulo', label: 'Título da seção', tipo: 'input' }
+      { chave: 'avaliacoes_titulo',    label: 'Título',    tipo: 'input' },
+      { chave: 'avaliacoes_subtitulo', label: 'Subtítulo', tipo: 'input' }
+    ]
+  },
+  {
+    id: 'instagram',
+    label: '📷 Instagram',
+    campos: [
+      { chave: 'instagram_titulo', label: 'Título', tipo: 'input' }
     ]
   },
   {
@@ -355,7 +362,7 @@ function preencherCamposTexto(textos){
 
 async function carregarTextosSite(){
   try {
-    const res = await fetch(apiUrl + '/api/textos')
+    const res = await fetch('/api/textos')
     const data = await res.json()
     if(data.sucesso) preencherCamposTexto(data.textos)
   } catch(e){}
@@ -376,7 +383,7 @@ async function salvarGrupoTexto(grupoId, btn){
   btn.textContent = 'Salvando...'
 
   try {
-    const res = await fetch(apiUrl + '/api/textos', {
+    const res = await fetch('/api/textos', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ textos })

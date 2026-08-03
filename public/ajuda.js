@@ -1,5 +1,3 @@
-const apiUrl = localStorage.getItem('sl_api_url') || ''
-
 /* Mostrar link de configurações para admins */
 document.addEventListener('DOMContentLoaded', function(){
   if(localStorage.getItem('sl_usuario_tipo') === 'admin'){
@@ -22,7 +20,7 @@ function renderSecao(s){
 
   } else if(s.tipo === 'pdf'){
     const pdfHref = s.tem_arquivo
-      ? (apiUrl + '/api/secoes/' + s.id + '/arquivo')
+      ? ('/api/secoes/' + s.id + '/arquivo')
       : s.url
     corpo = `
       ${s.conteudo ? `<p class="ajuda-descricao">${s.conteudo}</p>` : ''}
@@ -34,7 +32,7 @@ function renderSecao(s){
       ${s.conteudo ? `<p class="ajuda-descricao">${s.conteudo}</p>` : ''}
       ${id
         ? `<div class="ajuda-video-box">
-             <iframe src="https://www.youtube.com/embed/${id}" allowfullscreen></iframe>
+             <iframe src="https://www.youtube.com/embed/${id}" title="${s.titulo}" allowfullscreen></iframe>
            </div>`
         : `<a href="${s.url}" target="_blank" class="ajuda-link-video">▶ Assistir vídeo</a>`
       }`
@@ -55,7 +53,7 @@ function renderSecao(s){
 async function carregarSecoes(){
   const container = document.getElementById('ajuda-conteudo')
   try {
-    const res = await fetch(apiUrl + '/api/secoes')
+    const res = await fetch('/api/secoes')
     const data = await res.json()
     if(!data.sucesso || data.secoes.length === 0){
       container.innerHTML = '<p class="ajuda-vazio">Nenhum conteúdo disponível no momento.</p>'

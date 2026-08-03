@@ -3,16 +3,10 @@ if(localStorage.getItem('sl_usuario_tipo') !== 'admin'){
   window.location.href = 'index.html'
 }
 
-const API_KEY = 'sl_api_url'
-
 const SLOTS = [
   { id: 'img1', label: 'Foto — Seção "Quem sou eu"', fallback: 'images/img1.jpeg' },
   { id: 'img3', label: 'Foto — Seção "Depoimentos"', fallback: 'images/img3.jpeg' }
 ]
-
-function getApiUrl(){
-  return localStorage.getItem(API_KEY) || 'http://localhost:3000'
-}
 
 function setStatus(id, msg, sucesso){
   const el = document.getElementById(id)
@@ -23,20 +17,11 @@ function setStatus(id, msg, sucesso){
 
 document.addEventListener('DOMContentLoaded', function(){
 
-  document.getElementById('api-url').value = getApiUrl()
-
-  /* Salvar URL */
-  document.getElementById('btn-salvar-url').addEventListener('click', function(){
-    const url = document.getElementById('api-url').value.trim().replace(/\/$/, '')
-    localStorage.setItem(API_KEY, url)
-    setStatus('status-conexao', 'URL salva com sucesso.', true)
-  })
-
   /* Testar conexão */
   document.getElementById('btn-testar').addEventListener('click', async function(){
     setStatus('status-conexao', 'Testando...', true)
     try {
-      const res = await fetch(getApiUrl() + '/api/testar-conexao')
+      const res = await fetch('/api/testar-conexao')
       const data = await res.json()
       setStatus('status-conexao', data.mensagem, data.sucesso)
     } catch(e) {
@@ -54,7 +39,7 @@ document.addEventListener('DOMContentLoaded', function(){
       tipo:  document.getElementById('u-tipo').value
     }
     try {
-      const res = await fetch(getApiUrl() + '/api/usuarios', {
+      const res = await fetch('/api/usuarios', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(body)
@@ -86,7 +71,7 @@ async function carregarUsuarios(){
   const container = document.getElementById('tabela-usuarios')
   container.innerHTML = '<p class="dev-desc">Carregando...</p>'
   try {
-    const res = await fetch(getApiUrl() + '/api/usuarios')
+    const res = await fetch('/api/usuarios')
     const data = await res.json()
     if(!data.sucesso || data.usuarios.length === 0){
       container.innerHTML = '<p class="dev-desc">Nenhum usuário cadastrado.</p>'
@@ -117,7 +102,7 @@ async function carregarUsuarios(){
 async function deletarUsuario(id){
   if(!confirm('Excluir este usuário?')) return
   try {
-    await fetch(getApiUrl() + '/api/usuarios/' + id, { method: 'DELETE' })
+    await fetch('/api/usuarios/' + id, { method: 'DELETE' })
     carregarUsuarios()
   } catch(e) {
     alert('Erro ao excluir usuário.')
@@ -135,7 +120,7 @@ function renderizarSlots(){
     <div class="dev-slot" id="slot-${slot.id}">
       <div class="dev-slot-preview">
         <img
-          src="${getApiUrl()}/api/imagens/${slot.id}"
+          src="/api/imagens/${slot.id}"
           onerror="this.src='${slot.fallback}'"
           alt="${slot.label}"
         >
@@ -164,7 +149,7 @@ async function uploadImagem(slotId){
   formData.append('imagem', input.files[0])
   setStatus('status-img-' + slotId, 'Enviando...', true)
   try {
-    const res = await fetch(getApiUrl() + '/api/imagens/' + slotId, {
+    const res = await fetch('/api/imagens/' + slotId, {
       method: 'POST',
       body: formData
     })
@@ -172,7 +157,7 @@ async function uploadImagem(slotId){
     setStatus('status-img-' + slotId, data.sucesso ? 'Imagem salva com sucesso!' : data.mensagem, data.sucesso)
     if(data.sucesso){
       const img = document.querySelector('#slot-' + slotId + ' img')
-      img.src = getApiUrl() + '/api/imagens/' + slotId + '?t=' + Date.now()
+      img.src = '/api/imagens/' + slotId + '?t=' + Date.now()
       input.value = ''
     }
   } catch(e) {
@@ -183,7 +168,7 @@ async function uploadImagem(slotId){
 async function excluirImagem(slotId){
   if(!confirm('Remover imagem do banco? O site usará o arquivo local como fallback.')) return
   try {
-    await fetch(getApiUrl() + '/api/imagens/' + slotId, { method: 'DELETE' })
+    await fetch('/api/imagens/' + slotId, { method: 'DELETE' })
     const slot = SLOTS.find(function(s){ return s.id === slotId })
     const img = document.querySelector('#slot-' + slotId + ' img')
     img.src = slot ? slot.fallback : ''

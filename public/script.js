@@ -44,8 +44,7 @@ document.addEventListener("DOMContentLoaded", revealOnScroll)
    ================================ */
 
 ;(function carregarTextos(){
-  var apiUrl = localStorage.getItem('sl_api_url') || ''
-  fetch(apiUrl + '/api/textos')
+  fetch('/api/textos')
     .then(function(res){ return res.json() })
     .then(function(data){
       if(!data.sucesso) return
@@ -181,10 +180,9 @@ document.addEventListener("DOMContentLoaded", function(){
 
     const email  = document.getElementById("login-email").value
     const senha  = document.getElementById("login-senha").value
-    const apiUrl = localStorage.getItem("sl_api_url") || ""
 
     try {
-      const res = await fetch(apiUrl + "/api/login", {
+      const res = await fetch("/api/login", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ email, senha })
