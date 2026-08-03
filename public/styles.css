@@ -193,14 +193,14 @@ font-weight:bold;
 
 height:80vh;
 
-background:var(--verde-escuro);
+background:var(--verde-limao);
 
 display:flex;
 align-items:center;
 justify-content:center;
 text-align:center;
 
-color:white;
+color:var(--verde-escuro);
 
 }
 
@@ -845,11 +845,11 @@ line-height:1.7;
 
 padding:100px 0;
 
-background:var(--verde-escuro);
+background:var(--verde-limao);
 
 text-align:center;
 
-color:white;
+color:var(--verde-escuro);
 
 }
 
@@ -882,7 +882,7 @@ line-height:1.8;
 
 .historia .destaque{
 
-color:var(--bege-claro);
+color:var(--terracota-escuro);
 
 font-size:20px;
 
@@ -897,11 +897,11 @@ margin-top:10px;
 
 padding:100px 0;
 
-background:var(--verde-escuro);
+background:var(--verde-limao);
 
 text-align:center;
 
-color:white;
+color:var(--verde-escuro);
 
 }
 
@@ -938,6 +938,8 @@ color:var(--verde-escuro);
 font-size:18px;
 
 padding:16px 40px;
+
+box-shadow:0 4px 14px rgba(0,0,0,0.12);
 
 }
 
