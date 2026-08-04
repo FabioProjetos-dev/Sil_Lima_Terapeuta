@@ -212,8 +212,9 @@ document.addEventListener("DOMContentLoaded", function(){
       const nome     = document.getElementById("nome").value
       const email    = document.getElementById("email").value
       const mensagem = document.getElementById("mensagem").value
-      const texto    = `Olá, meu nome é ${nome}.\nEmail: ${email}.\nMensagem: ${mensagem}`
-      window.open(`https://wa.me/553197223852?text=${encodeURIComponent(texto)}`, "_blank")
+      let texto = `Olá, sou ${nome} e gostaria de ter mais detalhes sobre as sessões.\nEmail: ${email}`
+      if(mensagem) texto += `\nMensagem: ${mensagem}`
+      window.location.href = `https://wa.me/553197223852?text=${encodeURIComponent(texto)}`
     })
   }
 
