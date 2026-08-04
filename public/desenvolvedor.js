@@ -4,8 +4,8 @@ if(localStorage.getItem('sl_usuario_tipo') !== 'admin'){
 }
 
 const SLOTS = [
-  { id: 'img1', label: 'Foto — Seção "Quem sou eu"', fallback: 'images/img1.jpeg' },
-  { id: 'img3', label: 'Foto — Seção "Depoimentos"', fallback: 'images/img3.jpeg' }
+  { id: 'img1', label: 'Foto — Hero (topo do site)', fallback: 'images/img1.jpeg' },
+  { id: 'img3', label: 'Foto — Seção "Sobre mim"',    fallback: 'images/img3.jpeg' }
 ]
 
 function setStatus(id, msg, sucesso){

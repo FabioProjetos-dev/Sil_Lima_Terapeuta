@@ -222,9 +222,10 @@ const GRUPOS_TEXTO = [
   },
   {
     id: 'areas',
-    label: '🌱 Atendimento — Cards',
+    label: '🌱 Como Posso Ajudar — Cards',
     campos: [
       { chave: 'areas_titulo',  label: 'Título da seção', tipo: 'input'    },
+      { chave: 'areas_intro',   label: 'Introdução',      tipo: 'textarea' },
       { chave: 'card1_titulo',  label: 'Card 1 — Título', tipo: 'input'    },
       { chave: 'card1_texto',   label: 'Card 1 — Texto',  tipo: 'textarea' },
       { chave: 'card2_titulo',  label: 'Card 2 — Título', tipo: 'input'    },
@@ -234,7 +235,9 @@ const GRUPOS_TEXTO = [
       { chave: 'card4_titulo',  label: 'Card 4 — Título', tipo: 'input'    },
       { chave: 'card4_texto',   label: 'Card 4 — Texto',  tipo: 'textarea' },
       { chave: 'card5_titulo',  label: 'Card 5 — Título', tipo: 'input'    },
-      { chave: 'card5_texto',   label: 'Card 5 — Texto',  tipo: 'textarea' }
+      { chave: 'card5_texto',   label: 'Card 5 — Texto',  tipo: 'textarea' },
+      { chave: 'card6_titulo',  label: 'Card 6 — Título', tipo: 'input'    },
+      { chave: 'card6_texto',   label: 'Card 6 — Texto',  tipo: 'textarea' }
     ]
   },
   {
@@ -246,26 +249,25 @@ const GRUPOS_TEXTO = [
     ]
   },
   {
+    id: 'educacao',
+    label: '🌵 Educação Emocional',
+    campos: [
+      { chave: 'educacao_titulo',       label: 'Título',            tipo: 'input' },
+      { chave: 'educacao_step1_titulo', label: 'Passo 1 — Título',  tipo: 'input' },
+      { chave: 'educacao_step1_texto',  label: 'Passo 1 — Texto',   tipo: 'input' },
+      { chave: 'educacao_step2_titulo', label: 'Passo 2 — Título',  tipo: 'input' },
+      { chave: 'educacao_step2_texto',  label: 'Passo 2 — Texto',   tipo: 'input' },
+      { chave: 'educacao_step3_titulo', label: 'Passo 3 — Título',  tipo: 'input' },
+      { chave: 'educacao_step3_texto',  label: 'Passo 3 — Texto',   tipo: 'input' },
+      { chave: 'educacao_step4_titulo', label: 'Passo 4 — Título',  tipo: 'input' },
+      { chave: 'educacao_step4_texto',  label: 'Passo 4 — Texto',   tipo: 'input' }
+    ]
+  },
+  {
     id: 'instagram',
     label: '📷 Instagram',
     campos: [
       { chave: 'instagram_titulo', label: 'Título', tipo: 'input' }
-    ]
-  },
-  {
-    id: 'metodo',
-    label: '📋 Método de Acompanhamento',
-    campos: [
-      { chave: 'metodo_titulo',       label: 'Título',          tipo: 'input'    },
-      { chave: 'metodo_intro',        label: 'Introdução',      tipo: 'textarea' },
-      { chave: 'metodo_subtitulo',    label: 'Subtítulo',       tipo: 'input'    },
-      { chave: 'metodo_li1',          label: 'Item 1',          tipo: 'input'    },
-      { chave: 'metodo_li2',          label: 'Item 2',          tipo: 'input'    },
-      { chave: 'metodo_li3',          label: 'Item 3',          tipo: 'input'    },
-      { chave: 'metodo_li4',          label: 'Item 4',          tipo: 'input'    },
-      { chave: 'metodo_li5',          label: 'Item 5',          tipo: 'input'    },
-      { chave: 'metodo_li6',          label: 'Item 6',          tipo: 'input'    },
-      { chave: 'metodo_encerramento', label: 'Encerramento',    tipo: 'textarea' }
     ]
   },
   {
@@ -280,16 +282,6 @@ const GRUPOS_TEXTO = [
       { chave: 'historia_p5',       label: 'Parágrafo 5',  tipo: 'textarea' },
       { chave: 'historia_p6',       label: 'Parágrafo 6',  tipo: 'textarea' },
       { chave: 'historia_destaque', label: 'Destaque',     tipo: 'input'    }
-    ]
-  },
-  {
-    id: 'depoimentos',
-    label: '💬 Depoimentos',
-    campos: [
-      { chave: 'dep_titulo', label: 'Título',         tipo: 'input'    },
-      { chave: 'dep1',       label: 'Depoimento 1',   tipo: 'textarea' },
-      { chave: 'dep2',       label: 'Depoimento 2',   tipo: 'textarea' },
-      { chave: 'dep3',       label: 'Depoimento 3',   tipo: 'textarea' }
     ]
   },
   {
