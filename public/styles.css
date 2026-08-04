@@ -280,7 +280,7 @@ color:#686d65;
 
 .visual{
 
-height:480px;
+aspect-ratio:3/4;
 position:relative;
 overflow:hidden;
 background:var(--sage-palido);
@@ -440,9 +440,17 @@ align-items:center;
 
 .botanical{
 
-text-align:center;
-font-size:110px;
-opacity:0.7;
+display:flex;
+justify-content:center;
+
+}
+
+.botanical img{
+
+width:220px;
+max-width:100%;
+height:auto;
+display:block;
 
 }
 
@@ -457,10 +465,15 @@ margin-top:22px;
 
 .step small{
 
-letter-spacing:2px;
-color:var(--sage-escuro);
-font-weight:600;
-font-size:11px;
+display:block;
+
+}
+
+.step small img{
+
+width:34px;
+height:34px;
+display:block;
 
 }
 
@@ -500,7 +513,7 @@ align-items:center;
 
 .aboutpic{
 
-height:430px;
+aspect-ratio:4/7;
 overflow:hidden;
 
 }
@@ -1173,10 +1186,6 @@ min-height:18px;
     grid-template-columns:1fr;
   }
 
-  .visual{
-    height:360px;
-  }
-
   .cards{
     grid-template-columns:repeat(2,1fr);
   }
@@ -1223,8 +1232,8 @@ min-height:18px;
     grid-template-columns:1fr;
   }
 
-  .botanical{
-    font-size:80px;
+  .botanical img{
+    width:140px;
   }
 
   .chat{
