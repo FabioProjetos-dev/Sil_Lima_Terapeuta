@@ -77,6 +77,20 @@ document.addEventListener("DOMContentLoaded", revealOnScroll)
 
 
 /* ================================
+   FOTOS DO BANCO
+   Carrega a imagem local primeiro (rápido, sem esperar banco de dados)
+   e só troca pela versão do banco se o admin tiver enviado uma.
+   ================================ */
+
+document.querySelectorAll('img[data-slot]').forEach(function(img){
+  var slot = img.getAttribute('data-slot')
+  var dbImg = new Image()
+  dbImg.onload = function(){ img.src = '/api/imagens/' + slot }
+  dbImg.src = '/api/imagens/' + slot
+})
+
+
+/* ================================
    CHATBOT (carregado após login)
    ================================ */
 

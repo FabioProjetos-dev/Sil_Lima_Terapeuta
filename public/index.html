@@ -10,6 +10,7 @@
 <meta name="description" content="Terapia e educação emocional para pessoas que querem compreender suas emoções e florescer, mesmo nas estações mais difíceis.">
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600&family=Playfair+Display:wght@500;600&display=swap">
 <link rel="stylesheet" href="styles.css">
 <link rel="icon" href="icons/cacto_emoji.ico" type="image/x-icon">
@@ -75,7 +76,7 @@ Agendar Atendimento
 </div>
 
 <div class="visual">
-<img src="/api/imagens/img1" onerror="this.src='images/img1.jpeg'" alt="Sil Lima, terapeuta">
+<img src="images/img1.jpeg" data-slot="img1" fetchpriority="high" alt="Sil Lima, terapeuta">
 </div>
 
 </section>
@@ -157,7 +158,7 @@ para a própria história com mais consciência.
 <section id="educacao" class="band reveal">
 
 <div class="botanical">
-<img src="images/logo.png" alt="Sil Lima Terapeuta">
+<img src="images/logo.jpg" alt="Sil Lima Terapeuta" loading="lazy">
 </div>
 
 <div>
@@ -203,7 +204,7 @@ para a própria história com mais consciência.
 <section id="sobre" class="about reveal">
 
 <div class="aboutpic">
-<img src="/api/imagens/img3" onerror="this.src='images/img3.jpeg'" alt="Sil Lima, terapeuta">
+<img src="images/img3.jpeg" data-slot="img3" loading="lazy" alt="Sil Lima, terapeuta">
 </div>
 
 <div>
@@ -330,7 +331,6 @@ cura e transformação.
 <h2 data-texto="instagram_titulo">Instagram</h2>
 
 <div id="instagram-feed-widget" class="instagram-widget">
-<script src="https://elfsightcdn.com/platform.js" async></script>
 <div class="elfsight-app-e9891c84-32ab-41d5-be7f-73a3c0dde749" data-elfsight-app-lazy></div>
 </div>
 
@@ -478,7 +478,7 @@ Agende seu atendimento
 <script src="script.js"></script>
 
 
-<script src="https://cdn.botpress.cloud/webchat/v3.6/inject.js"></script>
+<script src="https://cdn.botpress.cloud/webchat/v3.6/inject.js" defer></script>
 <script id="chatbot-config" src="https://files.bpcontent.cloud/2024/12/30/16/20241230161117-JC2PO8VK.js" defer></script>
 
 
