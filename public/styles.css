@@ -50,7 +50,7 @@ margin:12px 0 22px;
 .kicker{
 letter-spacing:2px;
 text-transform:uppercase;
-font-size:11px;
+font-size:14px;
 color:var(--sage-escuro);
 font-weight:600;
 }
@@ -427,9 +427,10 @@ margin:30px auto 0;
 max-width:1400px;
 margin:auto;
 
-padding:90px 7%;
+padding:100px 7%;
 
-background:var(--sage-palido);
+background:var(--sage-escuro);
+color:white;
 
 display:grid;
 grid-template-columns:.8fr 1.2fr;
@@ -437,6 +438,10 @@ gap:8%;
 align-items:center;
 
 }
+
+.band .kicker{ color:var(--sage-palido); }
+
+.band h2{ color:white; }
 
 .botanical{
 
@@ -452,6 +457,12 @@ max-width:100%;
 height:auto;
 display:block;
 
+background:var(--branco);
+border-radius:16px;
+padding:20px;
+
+box-shadow:0 10px 30px rgba(0,0,0,0.2);
+
 }
 
 .steps{
@@ -465,14 +476,24 @@ margin-top:22px;
 
 .step small{
 
-display:block;
+display:flex;
+align-items:center;
+justify-content:center;
+
+width:52px;
+height:52px;
+
+background:var(--branco);
+border-radius:50%;
+
+box-shadow:0 6px 16px rgba(0,0,0,0.15);
 
 }
 
 .step small img{
 
-width:34px;
-height:34px;
+width:28px;
+height:28px;
 display:block;
 
 }
@@ -481,7 +502,8 @@ display:block;
 
 font-size:21px;
 font-weight:500;
-margin:7px 0;
+color:white;
+margin:12px 0 6px;
 
 }
 
@@ -489,7 +511,7 @@ margin:7px 0;
 
 font-size:14px;
 line-height:1.6;
-color:#5c645a;
+color:rgba(255,255,255,0.75);
 
 }
 
@@ -1233,7 +1255,7 @@ min-height:18px;
   }
 
   .botanical img{
-    width:140px;
+    width:170px;
   }
 
   .chat{
