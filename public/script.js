@@ -92,10 +92,33 @@ function carregarChatbot(){
 
 
 /* ================================
+   SESSÃO: expira depois de 24h
+   ================================ */
+
+const SESSAO_DURACAO_MS = 24 * 60 * 60 * 1000
+
+function sessaoExpirada(){
+  const login = parseInt(localStorage.getItem("sl_login_time") || "0", 10)
+  return (Date.now() - login) > SESSAO_DURACAO_MS
+}
+
+function encerrarSessaoSeExpirada(){
+  if(localStorage.getItem("sl_usuario_nome") && sessaoExpirada()){
+    localStorage.removeItem("sl_usuario_nome")
+    localStorage.removeItem("sl_usuario_tipo")
+    localStorage.removeItem("sl_usuario_email")
+    localStorage.removeItem("sl_login_time")
+  }
+}
+
+
+/* ================================
    NAV: visibilidade por tipo de usuário
    ================================ */
 
 function aplicarEstadoNav(){
+  encerrarSessaoSeExpirada()
+
   const nome = localStorage.getItem("sl_usuario_nome")
   const tipo = localStorage.getItem("sl_usuario_tipo")
   const btnAbrir = document.getElementById("btn-abrir-login")
@@ -193,6 +216,7 @@ document.addEventListener("DOMContentLoaded", function(){
         localStorage.setItem("sl_usuario_nome",  data.usuario.nome)
         localStorage.setItem("sl_usuario_tipo",  data.usuario.tipo)
         localStorage.setItem("sl_usuario_email", data.usuario.email)
+        localStorage.setItem("sl_login_time",    Date.now().toString())
         modalOverlay.classList.remove("ativo")
         aplicarEstadoNav()
         carregarChatbot()

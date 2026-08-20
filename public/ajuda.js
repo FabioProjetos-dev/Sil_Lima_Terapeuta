@@ -1,3 +1,13 @@
+/* Sessão expira depois de 24h */
+const SESSAO_DURACAO_MS = 24 * 60 * 60 * 1000
+const login = parseInt(localStorage.getItem('sl_login_time') || '0', 10)
+if(localStorage.getItem('sl_usuario_nome') && (Date.now() - login) > SESSAO_DURACAO_MS){
+  localStorage.removeItem('sl_usuario_nome')
+  localStorage.removeItem('sl_usuario_tipo')
+  localStorage.removeItem('sl_usuario_email')
+  localStorage.removeItem('sl_login_time')
+}
+
 /* Mostrar link de configurações para admins */
 document.addEventListener('DOMContentLoaded', function(){
   if(localStorage.getItem('sl_usuario_tipo') === 'admin'){

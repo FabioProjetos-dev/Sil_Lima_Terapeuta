@@ -1,3 +1,13 @@
+/* Sessão expira depois de 24h */
+const SESSAO_DURACAO_MS = 24 * 60 * 60 * 1000
+const loginTime = parseInt(localStorage.getItem('sl_login_time') || '0', 10)
+if((Date.now() - loginTime) > SESSAO_DURACAO_MS){
+  localStorage.removeItem('sl_usuario_nome')
+  localStorage.removeItem('sl_usuario_tipo')
+  localStorage.removeItem('sl_usuario_email')
+  localStorage.removeItem('sl_login_time')
+}
+
 /* Admin check */
 if(localStorage.getItem('sl_usuario_tipo') !== 'admin'){
   window.location.href = 'index.html'
