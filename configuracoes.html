@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Configurações — Sil Lima</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600&family=Playfair+Display:wght@500;600&display=swap">
+<link rel="stylesheet" href="styles.css">
+<link rel="stylesheet" href="desenvolvedor.css">
+<link rel="icon" href="icons/cacto_emoji.ico" type="image/x-icon">
+</head>
+
+<body>
+
+<header>
+<h1><a href="index.html" class="logo">Sil Lima</a></h1>
+<nav style="display:flex;align-items:center;gap:6px;flex-wrap:wrap">
+  <a href="index.html" style="margin-left:0">Início</a>
+  <a href="ajuda.html">Ajuda</a>
+  <a href="configuracoes.html">Configurações</a>
+  <a href="desenvolvedor.html">Dev</a>
+</nav>
+</header>
+
+
+<main class="dev-main">
+
+
+  <!-- FORMULÁRIO ADICIONAR / EDITAR SEÇÃO -->
+  <section class="dev-card">
+
+    <h2 id="cfg-form-titulo">Nova Seção — Página Ajuda</h2>
+
+    <form id="form-secao">
+
+      <input type="hidden" id="secao-id">
+
+      <div class="dev-form-row">
+        <label for="secao-titulo" class="sr-only">Título da seção</label>
+        <input type="text" id="secao-titulo" placeholder="Título da seção" required style="flex:2;min-width:200px">
+        <label for="secao-tipo" class="sr-only">Tipo da seção</label>
+        <select id="secao-tipo" class="cfg-select">
+          <option value="texto">📝 Texto</option>
+          <option value="pdf">📄 PDF</option>
+          <option value="video">▶ Vídeo YouTube</option>
+        </select>
+        <label for="secao-ordem" class="sr-only">Ordem</label>
+        <input type="number" id="secao-ordem" placeholder="Ordem" value="0" style="width:90px;flex:none;padding:11px 14px;border:1px solid #ddd;border-radius:8px;font-size:15px;outline:none">
+      </div>
+
+      <label for="secao-conteudo" class="sr-only">Conteúdo</label>
+      <textarea
+        id="secao-conteudo"
+        class="cfg-textarea"
+        placeholder="Conteúdo (texto explicativo ou descrição para PDF/vídeo)"
+        style="margin-top:14px"
+      ></textarea>
+
+      <div id="url-row" style="display:none;margin-top:12px">
+        <label for="secao-url" class="sr-only">URL do PDF ou link do YouTube</label>
+        <input
+          type="url"
+          id="secao-url"
+          placeholder="URL do PDF ou link do YouTube"
+          style="width:100%;padding:12px 14px;border:1px solid #ddd;border-radius:8px;font-size:15px;outline:none;box-sizing:border-box"
+        >
+
+        <div id="pdf-arquivo-row" style="display:none;margin-top:14px;padding-top:14px;border-top:1px solid #eee">
+          <label for="secao-arquivo" style="font-size:13px;color:#888;margin-bottom:8px;display:block">Ou envie um arquivo PDF do seu computador:</label>
+          <input
+            type="file"
+            id="secao-arquivo"
+            accept=".pdf,application/pdf"
+            style="width:100%;padding:10px;border:1px solid #ddd;border-radius:8px;font-size:14px;box-sizing:border-box;background:white;cursor:pointer"
+          >
+          <p id="arquivo-info" style="font-size:13px;color:#7A9E7E;margin-top:6px;min-height:16px"></p>
+        </div>
+      </div>
+
+      <div style="display:flex;gap:10px;margin-top:16px">
+        <button class="dev-btn" type="submit" id="btn-salvar-secao">Salvar Seção</button>
+        <button class="dev-btn dev-btn-outline" type="button" id="btn-cancelar" style="display:none">Cancelar edição</button>
+      </div>
+
+      <p class="dev-status" id="status-secao"></p>
+
+    </form>
+
+  </section>
+
+
+  <!-- LISTA DE SEÇÕES -->
+  <section class="dev-card">
+
+    <h2>
+      Seções Cadastradas
+      <button class="dev-btn dev-btn-sm" id="btn-recarregar">Recarregar</button>
+    </h2>
+
+    <div id="lista-secoes">
+      <p class="dev-desc">Carregando...</p>
+    </div>
+
+  </section>
+
+
+  <!-- TEXTOS DO SITE -->
+  <section class="dev-card">
+
+    <h2>Textos da Página Principal</h2>
+    <p class="dev-desc">Edite os textos exibidos em cada seção do site. Expanda uma seção, edite e clique em "Salvar".</p>
+
+    <div id="textos-editor">
+      <p class="dev-desc">Carregando textos...</p>
+    </div>
+
+  </section>
+
+
+</main>
+
+
+<footer>
+<div class="footer-bottom">
+<p>© 2026 Sil Lima — Área Restrita</p>
+</div>
+</footer>
+
+<script src="configuracoes.js"></script>
+
+</body>
+</html>
