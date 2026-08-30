@@ -377,9 +377,15 @@ box-shadow:0 14px 30px rgba(0,0,0,0.07);
 
 .card span{
 
-font-family:'Playfair Display', Georgia, serif;
-font-size:26px;
-color:var(--sage);
+display:block;
+
+}
+
+.card span img{
+
+width:44px;
+height:44px;
+display:block;
 
 }
 
@@ -452,16 +458,10 @@ justify-content:center;
 
 .botanical img{
 
-width:220px;
+width:340px;
 max-width:100%;
 height:auto;
 display:block;
-
-background:var(--branco);
-border-radius:16px;
-padding:20px;
-
-box-shadow:0 10px 30px rgba(0,0,0,0.2);
 
 }
 
@@ -1255,7 +1255,7 @@ min-height:18px;
   }
 
   .botanical img{
-    width:170px;
+    width:230px;
   }
 
   .chat{
